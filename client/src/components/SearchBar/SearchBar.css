@@ -1,0 +1,43 @@
+.boton {
+    color: aliceblue;
+
+    width: 100px;
+    height: 30px;
+    margin-left: 10px;
+
+    border-radius: 2px;
+    border-width: 0px;
+
+    cursor: pointer;
+    
+    background: linear-gradient(145deg, #5e6e97, #393d47);
+}
+
+.boton:hover{
+    border-radius: 2px;
+    box-shadow: inset 9.91px 9.91px 15px #393d47, inset -9.91px -9.91px 15px #5e6e97;
+}
+
+/*
+background: linear-gradient(145deg, #CDCFD2, #FFFFFF);
+border-radius: 15%;
+box-shadow: inset 9.91px 9.91px 15px #D9DADE, inset -9.91px -9.91px 15px #FFFFFF; 
+
+PARA EL HOVER
+*/
+
+.search{
+    color: rgb(9, 36, 59);
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 14px;
+
+    width: 400px;
+    margin-right: 20px;
+    height: 30px;
+    padding: 0 10px;
+
+    background: rgb(184, 210, 228);
+    border-radius: 3px;
+    border: 2px solid rgb(66, 121, 184);
+}

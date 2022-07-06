@@ -1,0 +1,16 @@
+.filter select{
+    color: rgb(9, 36, 59);
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 14px;
+
+    width: 200px;
+    margin: 20px;
+    min-height: 35px;
+    padding: 0 10px;
+
+    background: rgb(184, 210, 228);
+    border-radius: 3px;
+    border: 2px solid rgb(66, 121, 184);
+    cursor: pointer;
+}
