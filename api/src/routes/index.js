@@ -12,7 +12,7 @@ const router = Router();
 router.get('/countries', async (req, res) => {
     const { name } = req.query;
 
-    const controller = await Country.findByPk('ARG')
+    const controller = await Country.findByPk('BGR')
 
     if (!controller) {
         try {
