@@ -31,8 +31,8 @@ export default function Filter ({ handleSort, handlePage }) {
                     <option value='' >Order by...</option>
                     <option value='az' >A-Z</option>
                     <option value='za' >Z-A</option>
-                    <option value='more' >Most population</option>
-                    <option value='less' >Less Population</option>
+                    <option value='more' >Higher population</option>
+                    <option value='less' >Lower Population</option>
                 </select>
             </label>
             <label className="filter" >
