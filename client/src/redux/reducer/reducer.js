@@ -22,7 +22,7 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 countries: action.payload,
-                countries2: action.payload
+                countries2: action.payload.length >= 250 ? action.payload : state.countries2
             };
         case GET_COUNTRY_DETAIL:
             return {

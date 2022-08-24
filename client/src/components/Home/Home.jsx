@@ -14,7 +14,7 @@ class Home extends Component {
         super(props);
 
         this.state = {
-            currentPage: 0,
+            currentPage: 1,
             countriesPerPage: 10,
         }
         this.handlePage = this.handlePage.bind(this); // PARA ACTUALIZAR CORRECTAMENTE EL ESTADO SE PUEDE HACER ASI O
@@ -54,24 +54,18 @@ class Home extends Component {
         }
         else {
             this.setState({
-                currentPage: pageNumber - 1
+                currentPage: pageNumber
             })
         }
     }
 
     render() {
-        const countriesInFirstPage = this.props.countries.slice(0, 9);
-        const restCountries = this.props.countries.slice(9);
         const indexOfLastCountry = this.state.currentPage * this.state.countriesPerPage;
         const indexOfFirstCountry = indexOfLastCountry - this.state.countriesPerPage;
-        if (this.state.currentPage === 0) {
-            var currentCountries = countriesInFirstPage
-        } else {
-            var currentCountries = restCountries.slice(indexOfFirstCountry, indexOfLastCountry);
-        }
+        const currentCountries = this.props.countries.slice(indexOfFirstCountry, indexOfLastCountry);
         
         return (
-            <div>
+            <div className="home">
                 <NavBar />
                 <h1 className="titulo">Countries</h1>
                 <div>
@@ -81,7 +75,7 @@ class Home extends Component {
                 <hr/>
                 <div className="cards">
                 {
-                this.props.countries.length ?
+                currentCountries ?
                 currentCountries.map(c => {
                     return <CountryCard
                         id={c.id}

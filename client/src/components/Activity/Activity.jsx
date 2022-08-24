@@ -24,11 +24,11 @@ function Activity () {
 
         if (name === 'countriesName'){
             if (!activity.countriesName.includes(value)) {
-            setActivity({
-                // ACA SE PUEDE HACER UN MAP PARA QUE SI YA EXISTE ESE PAIS, NO SE REPITA
-                ...activity,
-                [name]: [...activity.countriesName, value]
-            })}
+                setActivity({
+                    ...activity,
+                    [name]: [...activity.countriesName, value]
+                })
+            }
         } else {
             setActivity({
                 ...activity,

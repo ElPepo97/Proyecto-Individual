@@ -1,3 +1,8 @@
+.barra {
+    background-color: white;
+    height: 0.01px;
+}
+
 .barra1 {
     position: fixed;
     top: 0px;
@@ -35,6 +40,25 @@
     border: 1px solid rgba(35, 67, 96, 0.3);
 }
 
+.barra3 {
+    position: fixed;
+    top: 0px;
+    z-index: 50;
+    left: 225px;
+
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+
+    background: rgba(35, 67, 96, 0.8);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14.4px);
+    -webkit-backdrop-filter: blur(14.4px);
+    border: 1px solid rgba(35, 67, 96, 0.3);
+}
+
 .texto{
     text-decoration: none;
     color: white;
@@ -46,5 +70,9 @@
 }
 
 .barra2:hover {
+    padding-top: 40px;
+}
+
+.barra3:hover {
     padding-top: 40px;
 }
