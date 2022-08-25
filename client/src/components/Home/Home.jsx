@@ -65,7 +65,7 @@ class Home extends Component {
         const currentCountries = this.props.countries.slice(indexOfFirstCountry, indexOfLastCountry);
         
         return (
-            <div className="general">
+            <div className="general2">
                 <NavBar />
                 <h1 className="titulo">Countries</h1>
                 <div>

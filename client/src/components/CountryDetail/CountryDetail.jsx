@@ -18,7 +18,7 @@ class CountryDetail extends Component {
         }
 
         return (
-            <div>
+            <div className="general">
                 <NavBar />
                 <div className="completo">
                     <h1>{country?.name}</h1>

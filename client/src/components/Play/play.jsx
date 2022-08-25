@@ -13,9 +13,10 @@ const Play = () => {
     const [country, setCountry] = useState({});
     const [mixedCapitals, setMixedCapitals] = useState([]);
     const [contador, setContador] = useState(1);
-    const [correct, setCorrect] = useState(0);
-    const [incorrect, setIncorrect] = useState(0);
+    const [correct, setCorrect] = useState([]);
+    const [incorrect, setIncorrect] = useState([]);
     const [correctInput, setCorrectInput] = useState(0);
+    const [oscuro, setOscuro] = useState(true)
     
     useEffect(() => {
         dispatch(getAllCountries());
@@ -32,9 +33,9 @@ const Play = () => {
     const handleAnswer = (e) => {
         e.preventDefault()
         if (e.target.value === country.capital) {
-            setCorrect(correct => correct + 1)
+            setCorrect(correct => [...correct, e.target.value])
         } else {
-            setIncorrect(incorrect => incorrect + 1)
+            setIncorrect(incorrect => [...incorrect, e.target.value])
         }
         setTimeout(() => {
             setCountry(countries[Math.floor(Math.random()*250)]);
@@ -51,10 +52,6 @@ const Play = () => {
         }
         setMixedCapitals(arreglo);
     };
-
-    const renderCountry = () => {
-        setCountry(countries[Math.floor(Math.random()*250)]);
-    }
     
     const randFunction = () => {
         mezclarArreglo([
@@ -80,15 +77,23 @@ const Play = () => {
             "#f9bec7",
           ],
         });
+        setContador(contador => contador + 1)
     }
 
-    if(contador > 10) {
+    if(contador === 11) {
         handleConfetti()
     }
 
+    const handleFondo = () => {
+        setOscuro(!oscuro)
+    }
+
     return (
-        <div className="general">
+        <div className={oscuro ? "general" : 'generalClaro'}>
             <NavBar />
+            <button onClick={handleFondo} className='walpaper-changer'>
+                fondo
+            </button>
             <h1> Play Quiz! </h1>
             <div className="play">
                 <div className="quiz-container" id="quiz">
@@ -126,8 +131,8 @@ const Play = () => {
                             <h1 className="finish">Game Over</h1>
                             <h2 id="question">Your scores: </h2>
                             <div>
-                                <p>Correct answers: {correct}</p>
-                                <p>Wrong answers: {incorrect}</p>
+                                <p>Correct answers: {correct.length}</p>
+                                <p>Wrong answers: {incorrect.length}</p>
                             </div>
                         </div>
                         }
