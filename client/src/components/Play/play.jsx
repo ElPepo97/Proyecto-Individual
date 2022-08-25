@@ -6,6 +6,9 @@ import { useEffect } from "react";
 import { getAllCountries } from "../../redux/actions/actions";
 import { useState } from "react";
 import JSConfetti from 'js-confetti'
+import CapitalQuiz from "../Games/capitalQuiz";
+import FlagQuiz from "../Games/flagQuiz";
+import BiggerOrLower from "../Games/bigOrLow";
 
 const Play = () => {
     const dispatch = useDispatch();
@@ -16,7 +19,11 @@ const Play = () => {
     const [correct, setCorrect] = useState([]);
     const [incorrect, setIncorrect] = useState([]);
     const [correctInput, setCorrectInput] = useState(0);
-    const [oscuro, setOscuro] = useState(true)
+    const [oscuro, setOscuro] = useState(true);
+    const [game, setGame] = useState('');
+    const [answering, setAnswering] = useState(false);
+    const [biggerCountry, setBiggerCountry] = useState({});
+    const [lowerCountry, setLowerCountry] = useState({})
     
     useEffect(() => {
         dispatch(getAllCountries());
@@ -28,19 +35,21 @@ const Play = () => {
 
     useEffect(() => {
         setCountry(countries[Math.floor(Math.random()*250)]);
+        setBiggerCountry(countries[Math.floor(Math.random()*250)]);
+        setLowerCountry(countries[Math.floor(Math.random()*250)]);
     }, [countries])
 
-    const handleAnswer = (e) => {
-        e.preventDefault()
-        if (e.target.value === country.capital) {
-            setCorrect(correct => [...correct, e.target.value])
-        } else {
-            setIncorrect(incorrect => [...incorrect, e.target.value])
+    const handleGame = (e) => {
+        e.preventDefault();
+        if (e.target.value === 'Capitals Quiz') {
+            return setGame('capital')
         }
-        setTimeout(() => {
-            setCountry(countries[Math.floor(Math.random()*250)]);
-            setContador(contador => contador + 1)
-        }, 800)
+        if (e.target.value === 'Flags Quiz') {
+            return setGame('flag')
+        }
+        if (e.target.value === 'Bigger or Lower') {
+            return setGame('bigOrLow')
+        }
     }
     
     const mezclarArreglo = arreglo => {
@@ -55,10 +64,10 @@ const Play = () => {
     
     const randFunction = () => {
         mezclarArreglo([
-            countries[Math.floor(Math.random()*250)]?.capital,
-            countries[Math.floor(Math.random()*250)]?.capital,
-            countries[Math.floor(Math.random()*250)]?.capital,
-            country?.capital
+            countries[Math.floor(Math.random()*250)],
+            countries[Math.floor(Math.random()*250)],
+            countries[Math.floor(Math.random()*250)],
+            country
         ]);
     }
     
@@ -80,7 +89,7 @@ const Play = () => {
         setContador(contador => contador + 1)
     }
 
-    if(contador === 11) {
+    if(contador === 11 && game !== 'bigOrLow') {
         handleConfetti()
     }
 
@@ -94,8 +103,96 @@ const Play = () => {
             <button onClick={handleFondo} className='walpaper-changer'>
                 fondo
             </button>
-            <h1> Play Quiz! </h1>
-            <div className="play">
+            {
+                game === '' ?
+                <div>
+                    <h1> Play Quiz! </h1>
+                    <div className="play">
+                        <div className='quiz-container'>
+                            <div className='quiz-header'>
+                                <h1 id="question">Game Selector</h1>
+                                <ul>
+                                    <li>
+                                        <input
+                                            value='Capitals Quiz'
+                                            type='button'
+                                            id="submit"
+                                            className="answer"
+                                            onClick={handleGame}
+                                        />
+                                    </li>
+                                    <li>
+                                        <input
+                                            value='Flags Quiz'
+                                            type='button'
+                                            id="submit"
+                                            className="answer"
+                                            onClick={handleGame}
+                                        />
+                                    </li>
+                                    <li>
+                                        <input
+                                            value='Bigger or Lower'
+                                            type='button'
+                                            id="submit"
+                                            className="answer"
+                                            onClick={handleGame}
+                                        />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                : game === 'capital' ?
+                <CapitalQuiz
+                    contador={contador}
+                    country={country}
+                    mixedCapitals={mixedCapitals}
+                    correct={correct}
+                    incorrect={incorrect}
+                    correctInput={correctInput}
+                    setContador={setContador}
+                    setCorrect={setCorrect}
+                    setIncorrect={setIncorrect}
+                    setCountry={setCountry}
+                    countries={countries}
+                    answering={answering}
+                    setAnswering={setAnswering}
+                />
+                : game === 'flag' ?
+                <FlagQuiz
+                    contador={contador}
+                    country={country}
+                    mixedCapitals={mixedCapitals}
+                    correct={correct}
+                    incorrect={incorrect}
+                    correctInput={correctInput}
+                    setContador={setContador}
+                    setCorrect={setCorrect}
+                    setIncorrect={setIncorrect}
+                    setCountry={setCountry}
+                    countries={countries}
+                    answering={answering}
+                    setAnswering={setAnswering}
+                />
+                : <BiggerOrLower
+                    contador={contador}
+                    biggerCountry={biggerCountry}
+                    lowerCountry={lowerCountry}
+                    correct={correct}
+                    incorrect={incorrect}
+                    correctInput={correctInput}
+                    setContador={setContador}
+                    setCorrect={setCorrect}
+                    setIncorrect={setIncorrect}
+                    setLowerCountry={setCountry}
+                    countries={countries}
+                    answering={answering}
+                    setAnswering={setAnswering}
+                />
+            }
+            {/* <div className="play">
                 <div className="quiz-container" id="quiz">
                     <div className="quiz-header">
                         {
@@ -139,7 +236,7 @@ const Play = () => {
 
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 };
