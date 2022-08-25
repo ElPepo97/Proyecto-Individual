@@ -73,7 +73,7 @@ function Activity () {
     }
 
     return (
-        <div>
+        <div className="general">
             <NavBar />
             <h1>Create Activity</h1>
             <hr/>
