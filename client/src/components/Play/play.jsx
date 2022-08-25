@@ -80,7 +80,6 @@ const Play = () => {
             "#f9bec7",
           ],
         });
-        // window.location.reload();
     }
 
     if(contador > 10) {
