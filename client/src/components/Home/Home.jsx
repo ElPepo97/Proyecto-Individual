@@ -74,19 +74,20 @@ class Home extends Component {
                 </div>
                 <hr/>
                 <div className="cards">
-                {
-                currentCountries ?
-                currentCountries.map(c => {
+                {/* {
+                currentCountries ? */}
+                {currentCountries.map(c => {
                     return <CountryCard
                         id={c.id}
                         name={c.name}
                         flag={c.flag}
                         region={c.region}
+                        capital={c.capital}
                         key={c.id}
                     />
-                })
-                : <h2>Sorry, couldn't find any country :(</h2>
-                }
+                })}
+                {/* : <h2>Sorry, couldn't find any country :(</h2> */}
+                {/* } */}
                 </div>
                 <Pagination
                 countriesPerPage={this.state.countriesPerPage}
