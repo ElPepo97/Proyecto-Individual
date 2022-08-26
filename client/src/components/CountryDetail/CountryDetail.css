@@ -1,7 +1,37 @@
+.altura {
+    max-height: 42vh;
+}
+.completoClaro {
+    font-family: Arima;
+    color: black;
+    margin-top: 40px;
+}
+
 .completo{
     font-family: Arima;
-
     margin-top: 40px;
+}
+
+.country-detail-claro {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 20px;
+
+    margin: 50px;
+    margin-top: 40px;
+    margin-bottom: 0px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    color:black;
+    background: rgba(235, 232, 194, 0.8);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14.4px);
+    -webkit-backdrop-filter: blur(14.4px);
+    border: 1px solid rgba(35, 67, 96, 0.3);
 }
 
 .country-detail{
@@ -26,6 +56,20 @@
     border: 1px solid rgba(35, 67, 96, 0.3);
 }
 
+.activitiesClaro {
+    margin: 50px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+    background: rgba(235, 232, 194, 0.8);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14.4px);
+    -webkit-backdrop-filter: blur(14.4px);
+    border: 1px solid rgba(35, 67, 96, 0.3);
+}
+
 .activities{
     margin: 50px;
     margin-top: 0px;
@@ -38,4 +82,5 @@
     backdrop-filter: blur(14.4px);
     -webkit-backdrop-filter: blur(14.4px);
     border: 1px solid rgba(35, 67, 96, 0.3);
-}
+};
+

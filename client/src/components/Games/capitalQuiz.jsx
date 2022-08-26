@@ -15,6 +15,7 @@ const CapitalQuiz = ({
     countries,
     answering,
     setAnswering,
+    oscuro
 }) => {
 
     const handleCapital = (e) => {
@@ -45,7 +46,7 @@ const CapitalQuiz = ({
         <div>
             <h1> Capitals Quiz! </h1>
             <div className="play">
-                <div className="quiz-container" id="quiz">
+                <div className={oscuro ? "quiz-container" : "quiz-container-claro"} id="quiz">
                     <div className="quiz-header">
                         {
                         contador < 11 ?

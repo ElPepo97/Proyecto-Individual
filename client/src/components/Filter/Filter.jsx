@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { filterRegion, filterActivity } from '../../redux/actions/actions'
-import '../Filter/Filter.css'
+import { filterRegion, filterActivity } from '../../redux/actions/actions';
+import '../Filter/Filter.css';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -23,11 +23,11 @@ export default function Filter ({ handleSort, handlePage }) {
 
     function handleFilter (event) {
         event.preventDefault();
-        setFilter(event.target.value);
         handlePage(1);
         if (event.target.value){
             dispatch(filterActivity(event.target.value))
         }
+        setFilter(event.target.value);
     }
     
     return (
@@ -50,22 +50,12 @@ export default function Filter ({ handleSort, handlePage }) {
         </Select>
       </FormControl>
 
-            {/* <label className="filter">
-                <select onChange={(c) => handleSort(c)}>
-                    <option value='' >Order by...</option>
-                    <option value='az' >A-Z</option>
-                    <option value='za' >Z-A</option>
-                    <option value='more' >Higher population</option>
-                    <option value='less' >Lower Population</option>
-                </select>
-            </label> */}
-
-<FormControl sx={{ m: 2, minWidth: 180 }} size="small">
+        <FormControl sx={{ m: 2, minWidth: 180 }} size="small">
         <InputLabel id="demo-simple-select-autowidth-label">Filter by region</InputLabel>
         <Select
           labelId="demo-simple-select-autowidth-label"
           id="demo-simple-select-autowidth"
-          value=''
+          value={filter}
           onChange={handleRegion}
           autoWidth
           label="Filter by region"

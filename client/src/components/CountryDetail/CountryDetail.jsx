@@ -18,13 +18,13 @@ class CountryDetail extends Component {
         }
 
         return (
-            <div className="general">
+            <div className={this.props.oscuro ? "general" : 'generalClaro'}>
                 <NavBar />
-                <div className="completo">
+                <div className={this.props.oscuro ? "completo" : 'completoClaro'}>
                     <h1>{country?.name}</h1>
-                    <hr/>
-                    <div className="country-detail">
-                        <img src={country?.flag} alt='Flag not found' />
+                    <hr />
+                    <div className={this.props.oscuro ? "country-detail" : 'country-detail-claro'}>
+                        <img className='altura' src={country?.flag} alt='Flag not found' />
                         <div>
                             <p>Region: {country?.region}</p>
                             <p>Capital: {country?.capital}</p>
@@ -36,7 +36,7 @@ class CountryDetail extends Component {
                             <p>Population: {country?.population}</p>
                         </div>
                     </div>
-                    <div className="activities">
+                    <div className={this.props.oscuro ? "activities" : 'activitiesClaro'}>
                         <hr />
                             {   
                             activity ?
@@ -61,7 +61,8 @@ class CountryDetail extends Component {
 
 function mapStateToProps(state) {
     return {
-        countryDetail: state.countryDetail
+        countryDetail: state.countryDetail,
+        oscuro: state.oscuro
     }
 }
 

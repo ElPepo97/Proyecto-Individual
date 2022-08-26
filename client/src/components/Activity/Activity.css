@@ -1,3 +1,48 @@
+.danger{
+    color: rgb(255, 208, 0);
+    font-family: sans-serif;
+    font-size: 15px;
+}
+.create-activity {
+    height: 80%;
+
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 20px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+
+    color:rgb(255, 255, 255);
+    background: rgba(91, 110, 128, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14.4px);
+    -webkit-backdrop-filter: blur(14.4px);
+    border: 1px solid rgba(35, 67, 96, 0.3);
+};
+
+.basurita {
+    color: red;
+}
+
+.create-activity-claro {
+    height: 80%;
+
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 20px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+
+    color:black;
+    background: rgba(235, 232, 194, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14.4px);
+    -webkit-backdrop-filter: blur(14.4px);
+    border: 1px solid rgba(35, 67, 96, 0.3);
+};
+
 .input {
     color: rgb(9, 36, 59);
     font-weight: bold;
@@ -14,25 +59,8 @@
     border-radius: 3px;
     border: 2px solid rgb(66, 121, 184);
     /* cursor: pointer; */
-}
+};
 
-.create-activity {
-    height: 80%;
-
-    margin-left: 200px;
-    margin-right: 200px;
-    margin-bottom: 20px;
-    padding-top: 40px;
-    padding-bottom: 20px;
-
-    color:rgb(255, 255, 255);
-    background: rgba(35, 67, 96, 0.8);
-    border-radius: 10px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(14.4px);
-    -webkit-backdrop-filter: blur(14.4px);
-    border: 1px solid rgba(35, 67, 96, 0.3);
-}
 
 .activity-countries select{
     color: rgb(9, 36, 59);
@@ -50,13 +78,8 @@
     border-radius: 3px;
     border: 2px solid rgb(66, 121, 184);
     cursor: pointer;
-}
+};
 
-.danger{
-    color: rgb(136, 18, 18);
-    font-family: sans-serif;
-    font-size: 15px;
-}
 
 .error select{
     color: rgb(9, 36, 59);

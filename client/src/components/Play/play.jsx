@@ -23,6 +23,7 @@ const Play = () => {
     const [biggerCountry, setBiggerCountry] = useState({});
     const [lowerCountry, setLowerCountry] = useState({})
     const [contador2, setContador2] = useState(1);
+    const oscuro = useSelector(state => state.oscuro);
     
     useEffect(() => {
         dispatch(getAllCountries());
@@ -93,7 +94,7 @@ const Play = () => {
     }
 
     return (
-        <div className={'generalClaro'}>  
+        <div className={oscuro ? 'general' : 'generalClaro'}>  
         {/* oscuro ? "general" :  */}
             <NavBar />
             {
@@ -101,7 +102,7 @@ const Play = () => {
                 <div>
                     <h1> Play Quiz! </h1>
                     <div className="play">
-                        <div className='quiz-container'>
+                        <div className={oscuro ? 'quiz-container' : 'quiz-container-claro'}>
                             <div className='quiz-header'>
                                 <h1 id="question">Game Selector</h1>
                                 <ul>
@@ -151,6 +152,7 @@ const Play = () => {
                     countries={countries}
                     answering={answering}
                     setAnswering={setAnswering}
+                    oscuro={oscuro}
                 />
                 : game === 'flag' ?
                 <FlagQuiz
@@ -166,6 +168,7 @@ const Play = () => {
                     countries={countries}
                     answering={answering}
                     setAnswering={setAnswering}
+                    oscuro={oscuro}
                 />
                 : <BiggerOrLower
                     contador={contador}

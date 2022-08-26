@@ -3,7 +3,13 @@ import {useDispatch, useSelector} from 'react-redux';
 import { createActivity, getAllCountries } from "../../redux/actions/actions";
 import NavBar from "../NavBar/NavBar";
 import '../Activity/Activity.css';
-import '../Filter/Filter.css'
+import '../Filter/Filter.css';
+import Input from '@material-ui/core/Input';
+import Button from '@material-ui/core/Button';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 
 function Activity () {
@@ -17,6 +23,7 @@ function Activity () {
     const [errors, setErrors] = useState({})
     const countries = useSelector(state => state.countries2)
     const dispatch = useDispatch();
+    const oscuro = useSelector(state => state.oscuro)
 
     function handleChange(event) {
         let name = event.target.name;
@@ -73,82 +80,101 @@ function Activity () {
     }
 
     return (
-        <div className="general">
+        <div className={oscuro ? "general" : 'generalClaro'}>
             <NavBar />
             <h1>Create Activity</h1>
             <hr/>
-            <div className="create-activity">
-                <form action="" >
-                    <label htmlFor="name">Activity name: </label>
-                    <input
-                        className={errors.name ? 'error2' : "input"}
-                        type="text" name='name' id='name'
-                        value={activity.name}
-                        placeholder='Activity...'
-                        onChange={handleChange}
-                    />
-                    {errors.name && (<span className="danger">{errors.name}</span>)}
-                    <br /> <br />
-                    <label htmlFor="difficulty">Difficulty:</label>
-                    <label className={errors.difficulty ? 'error' : "filter"}>
-                        <select
-                        name="difficulty" id="difficulty"
-                        onChange={handleChange}
-                        >
-                            <option value="">Select Difficulty</option>
-                            <option value="1">1 - Easy</option>
-                            <option value="2">2 - Upper Easy</option>
-                            <option value="3">3 - Medium</option>
-                            <option value="4">4 - Advanced</option>
-                            <option value="5">5 - Hard</option>
-                        </select>
-                    </label>
-                    {errors.difficulty && (<span className="danger">{errors.difficulty}</span>)}
-                    <br /> <br />
-                    <label htmlFor="duration">Duration (hs.):</label>
-                    <input
-                    className={errors.duration ? 'error2' : "input"}
-                    type="text" name="duration" id="duration"
-                    value={activity.duration}
-                    placeholder='Duration...'
+            <div className={oscuro ? "create-activity" : 'create-activity-claro'}>
+
+
+            <form noValidate autoComplete="off">
+                <Input
+                    placeholder="Activity name..."
+                    inputProps={{ 'aria-label': 'description' }}
                     onChange={handleChange}
-                    />
-                    {errors.duration && (<span className="danger">{errors.duration}</span>)}
-                    <br /> <br />
-                    <label htmlFor="season">Season: </label>
-                    <label className={errors.season ? 'error' : "filter"}>
-                        <select
-                        name="season" id="season" 
+                    size='small'
+                    name="name"
+                />
+                <br />
+                {errors.name && (<span className="danger">{errors.name}</span>)}
+                <br /><br />
+                
+                <FormControl sx={{  minWidth: 120 }} size="small">
+                    <InputLabel id="demo-simple-select-autowidth-label">Difficulty</InputLabel>
+                    <Select
+                        labelId="demo-simple-select-autowidth-label"
+                        id="demo-simple-select-autowidth"
+                        value=''
                         onChange={handleChange}
-                        >
-                            <option value="">Select Season</option>
-                            <option value="Autumn">Autumn</option>
-                            <option value="Spring">Spring</option>
-                            <option value="Summer">Summer</option>
-                            <option value="Winter">Winter</option>
-                            <option value="All the year">All the year</option>
-                        </select>
-                    </label>
-                    {errors.season && (<span className="danger">{errors.season}</span>)}
-                    <br /><br />
-                    <label htmlFor="countriesName">Countries for this activity:</label>
-                    <label className={errors.countriesName ? "error3" : "activity-countries"}>
-                        <select
-                        name="countriesName" id="countrt"
+                        autoWidth
+                        label="Difficulty"
+                        name="difficulty"
+                    >
+                        <MenuItem value="1">1 - Easy</MenuItem>
+                        <MenuItem value="2">2 - Upper Easy</MenuItem>
+                        <MenuItem value="3">3 - Medium</MenuItem>
+                        <MenuItem value="4">4 - Advanced</MenuItem>
+                        <MenuItem value="5">5 - Hard</MenuItem>
+                    </Select>
+                </FormControl>
+                <br />
+                {errors.difficulty && (<span className="danger">{errors.difficulty}</span>)}
+                <br /><br />
+                
+                <Input
+                    placeholder="Duration (hs.)"
+                    inputProps={{ 'aria-label': 'description' }}
+                    onChange={handleChange}
+                    name='duration'
+                    size='small'
+                />
+                <br />
+                {errors.duration && (<span className="danger">{errors.duration}</span>)}
+                <br /><br />
+
+                <FormControl variant="outlined" sx={{ minWidth: 120 }} size="small">
+                    <InputLabel id="demo-simple-select-autowidth-label">Season</InputLabel>
+                    <Select
+                        labelId="demo-simple-select-autowidth-label"
+                        id="demo-simple-select-autowidth"
+                        value=''
                         onChange={handleChange}
-                        >
-                            <option value="">Please select country</option>
-                            {countries?.map(c => {
-                                return <option value={c.name} key={c.id}>{c.name}</option>
-                            })}
-                        </select>
-                    </label>
-                    {!activity.countriesName.length && (<span className="danger">{errors.countriesName}</span>)}
-                    {/* ACA HAY QUE PONER UN TEXTO O IMAGEN DE CADA UNO DE LOS PAISES QUE SE AGREGA
-                        SE PUEDE HACER UN MAP DEL ESTADO COUNTRIESNAME */}
-                    <br />
-                    {
-                    activity.countriesName.length ?
+                        autoWidth
+                        label="Season"
+                        name="season"
+                    >
+                        <MenuItem value="Autumn">Autumn</MenuItem>
+                        <MenuItem value="Spring">Spring</MenuItem>
+                        <MenuItem value="Summer">Summer</MenuItem>
+                        <MenuItem value="Winter">Winter</MenuItem>
+                        <MenuItem value="All the year">All the year</MenuItem>
+                    </Select>
+                </FormControl>
+                <br />
+                {errors.season && (<span className="danger">{errors.season}</span>)}
+                <br /><br />
+
+                <FormControl sx={{ minWidth: 240 }} size="small">
+                    <InputLabel id="demo-simple-select-autowidth-label">Countries for this activity</InputLabel>
+                    <Select
+                        labelId="demo-simple-select-autowidth-label"
+                        id="demo-simple-select-autowidth"
+                        value=''
+                        onChange={handleChange}
+                        autoWidth
+                        label="Countries for this activity"
+                        name="countriesName"
+                    >
+                        {countries?.map(c => {
+                                return <MenuItem value={c.name} key={c.id}>{c.name}</MenuItem>
+                            })
+                        }
+                    </Select>
+                </FormControl>
+                <br />
+                {!activity.countriesName.length && (<span className="danger">{errors.countriesName}</span>)}
+                                    {
+                                        activity.countriesName.length ?
                     activity.countriesName.map(c => {
                         return <span key={c}>
                             <button
@@ -156,11 +182,14 @@ function Activity () {
                             >x </button>
                             {c} - </span>
                     })
-                    : <span></span>
-                    }
-                    <br /><br />
-                    <button className="boton" onClick={handleSubmit}>Create Activity</button>
-                </form>
+                    : null
+                }
+                <br /><br />
+
+                <Button variant="contained" color="primary" onClick={handleSubmit} size='small'>
+                    Create Activity
+                </Button>
+            </form>
             </div>
         </div>
     )

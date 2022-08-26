@@ -13,7 +13,8 @@ const FlagQuiz = ({ contador,
     setCountry,
     countries,
     answering,
-    setAnswering
+    setAnswering,
+    oscuro
 }) => {
 
     const handleFlag = (e) => {
@@ -44,7 +45,7 @@ const FlagQuiz = ({ contador,
         <div>
             <h1> Flags Quiz! </h1>
             <div className="play">
-                <div className="quiz-container-flag" id="quiz">
+                <div className={oscuro ? "quiz-container-flag" : "quiz-container-flag-claro"} id="quiz">
                     <div className="quiz-header">
                         {
                         contador < 11 ?

@@ -34,6 +34,26 @@
   color: black;
 }
 
+.quiz-container-claro {
+  background-color: rgba(235, 232, 194, 0.8);
+  opacity: 0.97;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+  width: 500px;
+  overflow: hidden;
+  color: black;
+}
+
+.quiz-container-flag-claro {
+  background-color: rgba(235, 232, 194, 0.8);
+  opacity: 0.97;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+  width: 900px;
+  overflow: hidden;
+  color: black;
+}
+
 .quiz-header {
   padding: 2rem;
 }
@@ -150,12 +170,11 @@ ul li {
 .big {
   display: flex;
   height: 80vh;
-  background-color: rgb(35, 61, 90);
-  opacity: 0.8;
+  /* background-color: rgb(35, 61, 90);
+  opacity: 0.8; */
   width: 50%;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
 }
 
 .bigger {
@@ -175,13 +194,13 @@ hr {
 
 .contador {
   position: absolute;
-  top: 53vh;
-  right: 99.1vh;
+  top: 53.4vh;
+  right: 99.3vh;
   color: black;
   font-size: 50px;
   z-index: 2;
-  background-color: rgb(187, 190, 155);
-  border-radius: 10000px;
+  /* background-color: rgb(187, 190, 155);
+  border-radius: 10000px; */
   width: 83px;
   height: 83px;
 }

@@ -35,6 +35,7 @@ const BiggerOrLower = ({
                 } else {
                     setContador(contador = contador + 1);
                     if (contador > 7) {
+                        setContador(1);
                         setBiggerCountry(countries[Math.floor(Math.random()*250)])
                     }
                 }
@@ -49,11 +50,13 @@ const BiggerOrLower = ({
                 setCorrect(correct => [...correct, lowerCountry]);
                 setBiggerCountry(countries[Math.floor(Math.random()*250)])
                 if (biggerCountry.name === 'Russia') {
+                    setContador2(1);
                     setLowerCountry(countries[Math.floor(Math.random()*250)])
                 } else {
                     setContador2(1);
                     setContador2(contador2 = contador2 + 1);
                     if (contador2 > 7) {
+                        setContador2(1);
                         setLowerCountry(countries[Math.floor(Math.random()*250)])
                     }
                 }
@@ -91,7 +94,7 @@ const BiggerOrLower = ({
                             <h1>{biggerCountry.name}</h1>
                             <img src={biggerCountry.flag} alt={`${biggerCountry.name} flag`}/>
                             <div>
-                                <input type="button" value='BIGGER' name='A' onClick={answering ? null : handleAnswer} />
+                                <input id="biggerOrLower" type="button" value='BIGGER' name='A' onClick={answering ? null : handleAnswer} />
                         </div>
                     </div>
                 </div>
@@ -101,7 +104,7 @@ const BiggerOrLower = ({
                         <h1>{lowerCountry.name}</h1>
                         <img src={lowerCountry.flag} alt={`${lowerCountry.name} flag`}/>
                         <div>
-                            <input type="button" value='BIGGER' name='B' onClick={answering ? null : handleAnswer} />
+                            <input id="biggerOrLower" type="button" value='BIGGER' name='B' onClick={answering ? null : handleAnswer} />
                         </div>
                     </div>
                 </div>

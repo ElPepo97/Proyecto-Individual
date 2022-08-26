@@ -28,7 +28,7 @@ class Home extends Component {
 
     handleSort(event) {
         event.preventDefault();
-        // this.handlePage(1)
+        this.handlePage(1)
         if (event.target.value) {
             this.props.orderedCountries(event.target.value)
         }
@@ -36,33 +36,15 @@ class Home extends Component {
     }
 
     handlePage(pageNumber, value) { 
-        // if (pageNumber === '+') {
-        //     if (this.state.currentPage === 25){
-        //         return;
-        //     }
-        //     this.setState({
-        //         currentPage: this.state.currentPage + 1
-        //     })
-        // }
-        // else if (pageNumber === '-') {
-        //     if (this.state.currentPage === 0){
-        //         return;
-        //     }
-        //     this.setState({
-        //         currentPage: this.state.currentPage - 1
-        //     })
-        // }
-        // else {
-            if (value) {
-                this.setState({
-                    currentPage: value 
-                })
-            } else {
-                this.setState({
-                    currentPage: pageNumber 
-                })
-            }
-        // }
+        if (value) {
+            this.setState({
+                currentPage: value 
+            })
+        } else {
+            this.setState({
+                currentPage: pageNumber 
+            })
+        }
     }
 
     render() {
