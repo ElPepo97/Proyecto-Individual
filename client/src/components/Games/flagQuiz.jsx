@@ -5,10 +5,8 @@ import '../Play/play.css';
 const FlagQuiz = ({ contador,
     country,
     mixedCapitals,
-    handleAnswer,
     correct,
     incorrect,
-    correctInput,
     setContador,
     setCorrect,
     setIncorrect,
@@ -56,7 +54,7 @@ const FlagQuiz = ({ contador,
                                     {contador}/10
                                 </div>
                                 <h2 id="question">Which country belongs the following flag?</h2>
-                                <img src={country?.flag}/>
+                                <img src={country?.flag} alt={`${country?.name} flag`}/>
                             </div>
                             <ul>
                                 {mixedCapitals
@@ -68,7 +66,7 @@ const FlagQuiz = ({ contador,
                                                         id="submit-flag"
                                                         type="button"
                                                         value={`${c.name}`}
-                                                        className={correctInput > 0 ? "correct" : correctInput < 0 ? 'incorrect' : 'answer'}
+                                                        className='answer'
                                                         name="answer"
                                                         onClick={answering ? null : handleFlag}
                                                     />

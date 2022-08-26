@@ -6,4 +6,36 @@
 
 .titulo {
   font-family: Arima;
+  color: rgb(17, 47, 80);
+  font-size: 40px;
+  margin-bottom: 30px; 
+}
+
+.pepito {
+  background: rgb(238,174,202); 
+  background: linear-gradient(0deg, rgb(70, 187, 207) 0%, rgb(171, 202, 219) 50%, rgb(255, 255, 255) 100%);
+  padding-bottom: 20px;
+  width: 100%;
+  display: inline-block;
+};
+
+.basura {
+  color: red;
+}
+
+.homeOscuro {
+  padding-bottom: 20px;
+  width: 100%;
+  display: inline-block;
+};
+
+.masbasura {
+  color: red;
+}
+
+.tituloOscuro {
+  font-family: Arima;
+  color: white;
+  font-size: 40px;
+  margin-bottom: 30px; 
 }

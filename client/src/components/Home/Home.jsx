@@ -6,7 +6,7 @@ import NavBar from "../NavBar/NavBar";
 import Filter from '../Filter/Filter'
 import SearchBar from "../SearchBar/SearchBar";
 import './Home.css';
-import Pagination from "../Pagination/Pagination";
+import PaginationComponent from "../Pagination/Pagination";
 
 
 class Home extends Component {
@@ -28,35 +28,41 @@ class Home extends Component {
 
     handleSort(event) {
         event.preventDefault();
-        this.handlePage(1)
+        // this.handlePage(1)
         if (event.target.value) {
             this.props.orderedCountries(event.target.value)
         }
         this.forceUpdate()
     }
 
-    handlePage(pageNumber) { 
-        if (pageNumber === '+') {
-            if (this.state.currentPage === 25){
-                return;
+    handlePage(pageNumber, value) { 
+        // if (pageNumber === '+') {
+        //     if (this.state.currentPage === 25){
+        //         return;
+        //     }
+        //     this.setState({
+        //         currentPage: this.state.currentPage + 1
+        //     })
+        // }
+        // else if (pageNumber === '-') {
+        //     if (this.state.currentPage === 0){
+        //         return;
+        //     }
+        //     this.setState({
+        //         currentPage: this.state.currentPage - 1
+        //     })
+        // }
+        // else {
+            if (value) {
+                this.setState({
+                    currentPage: value 
+                })
+            } else {
+                this.setState({
+                    currentPage: pageNumber 
+                })
             }
-            this.setState({
-                currentPage: this.state.currentPage + 1
-            })
-        }
-        else if (pageNumber === '-') {
-            if (this.state.currentPage === 0){
-                return;
-            }
-            this.setState({
-                currentPage: this.state.currentPage - 1
-            })
-        }
-        else {
-            this.setState({
-                currentPage: pageNumber
-            })
-        }
+        // }
     }
 
     render() {
@@ -65,10 +71,10 @@ class Home extends Component {
         const currentCountries = this.props.countries.slice(indexOfFirstCountry, indexOfLastCountry);
         
         return (
-            <div className="general2">
+            <div className={this.props.oscuro ? 'general2' : "generalClaro2"}>
+                <div className={this.props.oscuro ? 'homeOscuro' : 'pepito'}>
                 <NavBar />
-                <h1 className="titulo">Countries</h1>
-                <div>
+                <h1 className={this.props.oscuro ? 'tituloOscuro' : "titulo"}>Countries</h1>
                     <SearchBar handlePage={this.handlePage}/>
                     <Filter handleSort={e => this.handleSort(e)} handlePage={this.handlePage}/>  
                 </div>
@@ -89,10 +95,11 @@ class Home extends Component {
                 {/* : <h2>Sorry, couldn't find any country :(</h2> */}
                 {/* } */}
                 </div>
-                <Pagination
+                <PaginationComponent
                 countriesPerPage={this.state.countriesPerPage}
                 totalCountries={this.props.countries.length}
                 handlePage={this.handlePage}
+                currentPage={this.state.currentPage}
                 />
             </div>
         )
@@ -102,7 +109,8 @@ class Home extends Component {
 function mapStateToProps(state) {
     return {
         countries: state.countries,
-        activities: state.activities
+        activities: state.activities,
+        oscuro: state.oscuro
     }
 }
 

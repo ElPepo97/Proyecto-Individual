@@ -18,12 +18,11 @@ const Play = () => {
     const [contador, setContador] = useState(1);
     const [correct, setCorrect] = useState([]);
     const [incorrect, setIncorrect] = useState([]);
-    const [correctInput, setCorrectInput] = useState(0);
-    const [oscuro, setOscuro] = useState(true);
     const [game, setGame] = useState('');
     const [answering, setAnswering] = useState(false);
     const [biggerCountry, setBiggerCountry] = useState({});
     const [lowerCountry, setLowerCountry] = useState({})
+    const [contador2, setContador2] = useState(1);
     
     useEffect(() => {
         dispatch(getAllCountries());
@@ -93,16 +92,10 @@ const Play = () => {
         handleConfetti()
     }
 
-    const handleFondo = () => {
-        setOscuro(!oscuro)
-    }
-
     return (
-        <div className={oscuro ? "general" : 'generalClaro'}>
+        <div className={'generalClaro'}>  
+        {/* oscuro ? "general" :  */}
             <NavBar />
-            <button onClick={handleFondo} className='walpaper-changer'>
-                fondo
-            </button>
             {
                 game === '' ?
                 <div>
@@ -151,7 +144,6 @@ const Play = () => {
                     mixedCapitals={mixedCapitals}
                     correct={correct}
                     incorrect={incorrect}
-                    correctInput={correctInput}
                     setContador={setContador}
                     setCorrect={setCorrect}
                     setIncorrect={setIncorrect}
@@ -167,7 +159,6 @@ const Play = () => {
                     mixedCapitals={mixedCapitals}
                     correct={correct}
                     incorrect={incorrect}
-                    correctInput={correctInput}
                     setContador={setContador}
                     setCorrect={setCorrect}
                     setIncorrect={setIncorrect}
@@ -178,65 +169,22 @@ const Play = () => {
                 />
                 : <BiggerOrLower
                     contador={contador}
+                    contador2={contador2}
+                    setContador2={setContador2}
                     biggerCountry={biggerCountry}
                     lowerCountry={lowerCountry}
                     correct={correct}
                     incorrect={incorrect}
-                    correctInput={correctInput}
                     setContador={setContador}
                     setCorrect={setCorrect}
                     setIncorrect={setIncorrect}
-                    setLowerCountry={setCountry}
+                    setLowerCountry={setLowerCountry}
+                    setBiggerCountry={setBiggerCountry}
                     countries={countries}
                     answering={answering}
                     setAnswering={setAnswering}
                 />
             }
-            {/* <div className="play">
-                <div className="quiz-container" id="quiz">
-                    <div className="quiz-header">
-                        {
-                        contador < 11 ?
-                        <div>
-                            <div>
-                                {contador}/10
-                            </div>
-                            <h2 id="question">What is the capital of {country?.name}</h2>
-                            <ul>
-                                {mixedCapitals
-                                    ? mixedCapitals?.map((c, index) => {
-                                        return (
-                                            <div key={index}>
-                                                <li>
-                                                    <input
-                                                        id="submit"
-                                                        type="button"
-                                                        value={`${c}`}
-                                                        className={correctInput > 0 ? "correct" : correctInput < 0 ? 'incorrect' : 'answer'}
-                                                        name="answer"
-                                                        onClick={handleAnswer}
-                                                    />
-                                                </li>
-                                            </div>
-                                        )
-                                    })
-                                    : null
-                                }
-                            </ul>
-                        </div>
-                        : <div>
-                            <h1 className="finish">Game Over</h1>
-                            <h2 id="question">Your scores: </h2>
-                            <div>
-                                <p>Correct answers: {correct.length}</p>
-                                <p>Wrong answers: {incorrect.length}</p>
-                            </div>
-                        </div>
-                        }
-
-                    </div>
-                </div>
-            </div> */}
         </div>
     )
 };

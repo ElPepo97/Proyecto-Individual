@@ -7,6 +7,7 @@ export const ORDERED_COUNTRIES = 'ORDERED_COUNTRIES';
 export const GET_ALL_ACTIVITIES = 'GET_ALL_ACTIVITIES';
 export const FILTER_REGION = 'FILTER_REGION';
 export const FILTER_ACTIVITY = 'FILTER_ACTIVITY';
+export const CHANGE_BACKGROUND_COLOR = 'CHANGE_BACKGROUND_COLOR';
 
 
 export const getAllCountries = (name) => {
@@ -85,6 +86,15 @@ export const filterActivity = (payload) => {
     return function (dispatch) {
         dispatch({
             type: FILTER_ACTIVITY,
+            payload
+        })
+    }
+};
+
+export const changeBackgroundColor = (payload) => {
+    return function (dispatch) {
+        dispatch({
+            type: CHANGE_BACKGROUND_COLOR,
             payload
         })
     }

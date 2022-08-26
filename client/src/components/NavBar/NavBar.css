@@ -6,6 +6,7 @@
 .barra1 {
     position: fixed;
     top: 0px;
+    left: 3px;
     z-index: 50;
     
     display: flex;
@@ -26,7 +27,7 @@
     position: fixed;
     top: 0px;
     z-index: 50;
-    left: 80px;
+    left: 83px;
 
     display: flex;
     justify-content: space-around;
@@ -46,7 +47,7 @@
     position: fixed;
     top: 0px;
     z-index: 50;
-    left: 225px;
+    left: 228px;
 
     display: flex;
     justify-content: space-around;

@@ -4,7 +4,8 @@ import { GET_ALL_COUNTRIES,
         ORDERED_COUNTRIES,
         GET_ALL_ACTIVITIES,
         FILTER_REGION,
-        FILTER_ACTIVITY
+        FILTER_ACTIVITY,
+        CHANGE_BACKGROUND_COLOR
     } from '../actions/actions'
 
 
@@ -13,7 +14,8 @@ const initialState = {
     countries2: [],
     countryDetail: [],
     activities: [],
-    filteredCountries: []
+    filteredCountries: [],
+    oscuro: true
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -91,6 +93,11 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 countries: activity
+            }
+        case CHANGE_BACKGROUND_COLOR:
+            return {
+                ...state,
+                oscuro: !state.oscuro
             }
         default:
             return state;

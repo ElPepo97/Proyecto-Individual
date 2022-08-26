@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import '../Play/play.css';
 
 
@@ -8,7 +8,6 @@ const CapitalQuiz = ({
     mixedCapitals,
     correct,
     incorrect,
-    correctInput,
     setContador,
     setCorrect,
     setIncorrect,
@@ -65,7 +64,7 @@ const CapitalQuiz = ({
                                                         id="submit"
                                                         type='button'
                                                         value={`${c?.capital}`}
-                                                        className={correctInput > 0 ? "correct" : correctInput < 0 ? 'incorrect' : 'answer'}
+                                                        className='answer'
                                                         name="answer"
                                                         onClick={answering ? null : handleCapital}
                                                     />

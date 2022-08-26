@@ -1,25 +1,23 @@
 import React from "react";
 import '../Pagination/Pagination.css';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
 
-const Pagination = ({ countriesPerPage, totalCountries, handlePage }) => {
+const PaginationComponent = ({ countriesPerPage, totalCountries, handlePage, currentPage }) => {
     const pageNumbers = [];
-
+    
     for (let i = 1; i <= Math.ceil(totalCountries / countriesPerPage); i++) {
         pageNumbers.push(i)
     }
 
     return (
-        <nav>
-            <button className="pagination" onClick={() => handlePage('-')}>◀</button>
-                {pageNumbers.map(n => (
-                        <button className="pagination" onClick={() => handlePage(n)} key={n} >
-                            {n}
-                        </button>   
-                ))}
-            <button className="pagination" onClick={() => handlePage('+')}>▶</button>
-        </nav>
+        <div className='pagination'>
+            <Stack>
+                <Pagination color="primary" count={pageNumbers.length} page={currentPage} onChange={handlePage} />
+            </Stack>
+        </div>
     );
 };
 
-export default Pagination;
+export default PaginationComponent;

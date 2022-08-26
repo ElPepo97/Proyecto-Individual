@@ -27,3 +27,11 @@
   color: white;
   height: 100vh;
 }
+
+.generalClaro2 {
+  background-image: url('./fondoClaro.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+}

@@ -185,3 +185,37 @@ hr {
   width: 83px;
   height: 83px;
 }
+
+#biggerOrLower {
+  background-color: rgba(47, 88, 126, 0.8);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  flex-direction: row;
+  min-width: 25%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-family: inherit;
+  padding: 1.3rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  transition: all ease 0.2s;
+}
+
+#biggerOrLower:hover {
+  background-color: rgba(21, 50, 78, 0.8);
+  transform: scale(1.1);
+}
+
+#biggerOrLower:focus {
+  outline: none;
+  background-color: rgba(5, 24, 109, 0.8);
+}
+
+.aaaaa {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
