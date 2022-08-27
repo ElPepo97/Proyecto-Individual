@@ -92,9 +92,9 @@ const CapitalQuiz = ({
                             <div>
                                 <p>Correct answers: {correct.length}</p>
                                 <p>Wrong answers: {incorrect.length}</p>
-                                <div>
-                                    <button id="submit" onClick={handleTryAgain}>Try again!</button>
-                                    <button id="submit" onClick={handleGoBack}>Go back</button>
+                                <div className="aaaaa">
+                                    <button id="bbbbb" onClick={handleTryAgain}>Try again!</button>
+                                    <button id="bbbbb" onClick={handleGoBack}>Go back</button>
                                 </div>
                             </div>
                         </div>
