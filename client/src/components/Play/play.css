@@ -169,17 +169,37 @@ ul li {
 
 .big {
   display: flex;
-  height: 80vh;
-  /* background-color: rgb(35, 61, 90);
-  opacity: 0.8; */
-  width: 50%;
+  height: 70vh;
+  background-color: rgb(44, 61, 82);
+  /* opacity: 0.8; */
+  width: 40%;
   align-items: center;
   justify-content: center;
+  border-radius: 12px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 20px;
 }
 
 .bigger {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+}
+
+.bigClaro {
+  display: flex;
+  height: 70vh;
+  background-color: rgb(184, 210, 228);
+  /* opacity: 0.8; */
+  width: 40%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 20px;
+  color: black;
 }
 
 .biggest {
@@ -220,6 +240,7 @@ hr {
   justify-content: center;
   align-items: center;
   transition: all ease 0.2s;
+  margin-top: 20px;
 }
 
 #biggerOrLower:hover {

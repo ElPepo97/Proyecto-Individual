@@ -29,7 +29,6 @@ console.log(search)
                     placeholder="Country name..."
                     inputProps={{ 'aria-label': 'description' }}
                     onChange={handleChange}
-                    // onSubmit={handleSubmit}
                     size='small'
                 />
                 <Button variant="contained" color="primary" onClick={handleSubmit} size='small'>

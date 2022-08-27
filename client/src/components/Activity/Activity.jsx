@@ -108,13 +108,13 @@ function Activity () {
                         onChange={handleChange}
                         autoWidth
                         label="Difficulty"
-                        name="difficulty"
+                        name={activity.difficulty}
                     >
-                        <MenuItem value="1">1 - Easy</MenuItem>
-                        <MenuItem value="2">2 - Upper Easy</MenuItem>
-                        <MenuItem value="3">3 - Medium</MenuItem>
-                        <MenuItem value="4">4 - Advanced</MenuItem>
-                        <MenuItem value="5">5 - Hard</MenuItem>
+                        <MenuItem value="1" >1 - Easy</MenuItem>
+                        <MenuItem value="2" >2 - Upper Easy</MenuItem>
+                        <MenuItem value="3" >3 - Medium</MenuItem>
+                        <MenuItem value="4" >4 - Advanced</MenuItem>
+                        <MenuItem value="5" >5 - Hard</MenuItem>
                     </Select>
                 </FormControl>
                 <br />

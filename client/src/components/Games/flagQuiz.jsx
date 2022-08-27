@@ -38,7 +38,11 @@ const FlagQuiz = ({ contador,
     }
 
     const handleTryAgain = (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
+        setContador(1);
+        setCorrect([]);
+        setIncorrect([]);
+        setCountry(countries[Math.floor(Math.random()*250)]);
     }
 
     return (

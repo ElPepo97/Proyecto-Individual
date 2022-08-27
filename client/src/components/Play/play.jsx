@@ -186,6 +186,7 @@ const Play = () => {
                     countries={countries}
                     answering={answering}
                     setAnswering={setAnswering}
+                    oscuro={oscuro}
                 />
             }
         </div>

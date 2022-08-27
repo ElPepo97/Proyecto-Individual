@@ -16,7 +16,8 @@ const BiggerOrLower = ({
     setBiggerCountry,
     countries,
     answering,
-    setAnswering
+    setAnswering,
+    oscuro
 }) => {
     
     const handleAnswer = (e) => {
@@ -71,6 +72,12 @@ const BiggerOrLower = ({
 
     const handleTryAgain = (e) => {
         e.preventDefault();
+        setContador(1);
+        setContador2(1);
+        setCorrect([]);
+        setIncorrect([]);
+        setBiggerCountry(countries[Math.floor(Math.random()*250)]);
+        setLowerCountry(countries[Math.floor(Math.random()*250)]);
     }
 
     const handleGoBack = (e) => {
@@ -89,7 +96,7 @@ const BiggerOrLower = ({
             !incorrect.length ?
                 <div className='bigger'>
                     <div className='contador'>{correct.length}</div>
-                    <div className="big">
+                    <div className={oscuro ? "big" : "bigClaro"}>
                         <div className="country">
                             <h1>{biggerCountry.name}</h1>
                             <img src={biggerCountry.flag} alt={`${biggerCountry.name} flag`}/>
@@ -99,7 +106,7 @@ const BiggerOrLower = ({
                     </div>
                 </div>
                 <hr></hr>
-                <div className="big">
+                <div className={oscuro ? "big" : "bigClaro"}>
                     <div className="country">
                         <h1>{lowerCountry.name}</h1>
                         <img src={lowerCountry.flag} alt={`${lowerCountry.name} flag`}/>
