@@ -14,7 +14,8 @@ const FlagQuiz = ({ contador,
     countries,
     answering,
     setAnswering,
-    oscuro
+    oscuro,
+    setGame
 }) => {
 
     const handleFlag = (e) => {
@@ -33,8 +34,12 @@ const FlagQuiz = ({ contador,
     }
 
     const handleGoBack = (e) => {
-        e.preventDefault()
-        window.location.reload();
+        e.preventDefault();
+        setContador(1);
+        setCorrect([]);
+        setIncorrect([]);
+        setCountry(countries[Math.floor(Math.random()*250)]);
+        setGame('');
     }
 
     const handleTryAgain = (e) => {

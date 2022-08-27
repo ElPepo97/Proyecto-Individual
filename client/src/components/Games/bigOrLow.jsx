@@ -17,7 +17,8 @@ const BiggerOrLower = ({
     countries,
     answering,
     setAnswering,
-    oscuro
+    oscuro,
+    setGame
 }) => {
     
     const handleAnswer = (e) => {
@@ -82,7 +83,11 @@ const BiggerOrLower = ({
 
     const handleGoBack = (e) => {
         e.preventDefault();
-        window.location.reload();
+        setContador(1);
+        setContador2(1);
+        setCorrect([]);
+        setIncorrect([]);
+        setGame('');
     }
     
     return (

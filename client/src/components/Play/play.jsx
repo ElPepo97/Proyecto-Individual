@@ -153,6 +153,7 @@ const Play = () => {
                     answering={answering}
                     setAnswering={setAnswering}
                     oscuro={oscuro}
+                    setGame={setGame}
                 />
                 : game === 'flag' ?
                 <FlagQuiz
@@ -169,6 +170,7 @@ const Play = () => {
                     answering={answering}
                     setAnswering={setAnswering}
                     oscuro={oscuro}
+                    setGame={setGame}
                 />
                 : <BiggerOrLower
                     contador={contador}
@@ -187,6 +189,7 @@ const Play = () => {
                     answering={answering}
                     setAnswering={setAnswering}
                     oscuro={oscuro}
+                    setGame={setGame}
                 />
             }
         </div>
