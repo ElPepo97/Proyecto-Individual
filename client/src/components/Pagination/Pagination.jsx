@@ -1,6 +1,6 @@
 import React from "react";
 import Pagination from '@mui/material/Pagination';
-import './pagination.css';
+import './Pagination.css';
 import Stack from '@mui/material/Stack';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSelector } from "react-redux";
