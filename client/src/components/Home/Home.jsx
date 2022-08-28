@@ -61,9 +61,9 @@ class Home extends Component {
                 </div>
                 <hr/>
                 <div className="cards">
-                {/* {
-                currentCountries ? */}
-                {currentCountries.map(c => {
+                {
+                currentCountries ?
+                currentCountries.map(c => {
                     return <CountryCard
                         id={c.id}
                         name={c.name}
@@ -72,9 +72,9 @@ class Home extends Component {
                         capital={c.capital}
                         key={c.id}
                     />
-                })}
-                {/* : <h2>Sorry, couldn't find any country :(</h2> */}
-                {/* } */}
+                })
+                : <h2>Sorry, couldn't find any country :(</h2>
+                }
                 </div>
                 <PaginationComponent
                 countriesPerPage={this.state.countriesPerPage}
