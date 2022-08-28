@@ -9,12 +9,15 @@ export const FILTER_REGION = 'FILTER_REGION';
 export const FILTER_ACTIVITY = 'FILTER_ACTIVITY';
 export const CHANGE_BACKGROUND_COLOR = 'CHANGE_BACKGROUND_COLOR';
 
+const DEV_URL = 'pi-backend-aq5pb33ut-elpepo97.vercel.app';
+// const DEV_URL = 'http://localhost:3001';
+
 
 export const getAllCountries = (name) => {
     return async function (dispatch) {
         if (name) {
             try {
-                const response = await axios.get(`http://localhost:3001/countries?name=${name}`)
+                const response = await axios.get(`${DEV_URL}/countries?name=${name}`)
                 dispatch({ type: GET_ALL_COUNTRIES, payload: response.data })
             } catch (error) {
                 console.log(error);
@@ -22,7 +25,7 @@ export const getAllCountries = (name) => {
         }
         else {
             try {
-                const response = await axios.get('http://localhost:3001/countries')
+                const response = await axios.get(`${DEV_URL}/countries`)
                 dispatch({ type: GET_ALL_COUNTRIES, payload: response.data })
             } catch (error) {
                 console.log(error);
@@ -34,7 +37,7 @@ export const getAllCountries = (name) => {
 export const getCountryDetail = (id) => {
     return async function (dispatch) {
         try {
-            const response = await axios.get(`http://localhost:3001/countries/${id}`)
+            const response = await axios.get(`${DEV_URL}/countries/${id}`)
             dispatch({ type: GET_COUNTRY_DETAIL, payload: response.data})
         } catch (error) {
             console.log(error)
@@ -45,7 +48,7 @@ export const getCountryDetail = (id) => {
 export const createActivity = (data) => {
     return async function (dispatch) {
         try {
-            const response = await axios.post('http://localhost:3001/activities', data)
+            const response = await axios.post(`${DEV_URL}/activities`, data)
             dispatch({ type: CREATE_ACTIVITY, payload: response.data })
         } catch (error) {
             console.log(error)
@@ -65,7 +68,7 @@ export const orderedCountries = (payload) => {
 export const getAllActivities = () => {
     return async function (dispatch) {
         try {
-            const response = await axios.get('http://localhost:3001/activities')
+            const response = await axios.get(`${DEV_URL}/activities`)
             dispatch({ type: GET_ALL_ACTIVITIES, payload: response.data})
         } catch (error) {
             console.log(error)
