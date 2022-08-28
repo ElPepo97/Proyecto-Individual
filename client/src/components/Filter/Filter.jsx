@@ -6,12 +6,25 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  root: {
+    background: '#f5eeee',
+    border: 0,
+    borderRadius: 4,
+    color: 'black',
+    height: 40,
+    width: 180,
+  },
+});
 
 
 export default function Filter ({ handleSort, handlePage }) {
     const filterActivities = useSelector(state => state.activities)
     const dispatch = useDispatch();
-    const [filter, setFilter] = useState('')
+    const [filter, setFilter] = useState('');
+    const classes = useStyles();
 
     function handleRegion (event) {
         event.preventDefault();
@@ -30,10 +43,9 @@ export default function Filter ({ handleSort, handlePage }) {
         setFilter(event.target.value);
     }
     
-    return (
-        <div>
-
-<FormControl sx={{ m: 2, minWidth: 120 }} size="small" color="secondary">
+  return (
+    <div>
+      <FormControl sx={{ m: 2, minWidth: 120 }} size="small" className={classes.root}>
         <InputLabel id="demo-simple-select-autowidth-label">Order by...</InputLabel>
         <Select
           labelId="demo-simple-select-autowidth-label"
@@ -50,7 +62,7 @@ export default function Filter ({ handleSort, handlePage }) {
         </Select>
       </FormControl>
 
-        <FormControl sx={{ m: 2, minWidth: 180 }} size="small">
+        <FormControl sx={{ m: 2, minWidth: 180 }} size="small" className={classes.root}>
         <InputLabel id="demo-simple-select-autowidth-label">Filter by region</InputLabel>
         <Select
           labelId="demo-simple-select-autowidth-label"
@@ -70,20 +82,7 @@ export default function Filter ({ handleSort, handlePage }) {
         </Select>
       </FormControl>
 
-            {/* <label className="filter" >
-                <select onChange={c => handleRegion(c)}>
-                    <option value=''>Filter by region</option>
-                    <option value='Africa'>Africa</option>
-                    <option value='Americas'>Americas</option>
-                    <option value='Antarctic'>Antarctic</option>
-                    <option value='Asia'>Asia</option>
-                    <option value='Europe'>Europe</option>
-                    <option value='Oceania'>Oceania</option>
-                    <option value='all'>All countries</option>
-                </select>
-            </label> */}
-
-<FormControl sx={{ m: 2, minWidth: 180 }} size="small">
+      <FormControl sx={{ m: 2, minWidth: 180 }} size="small" className={classes.root}>
         <InputLabel id="demo-simple-select-autowidth-label">Filter by activity</InputLabel>
         <Select
           labelId="demo-simple-select-autowidth-label"
@@ -102,16 +101,8 @@ export default function Filter ({ handleSort, handlePage }) {
                             )
                         }) 
                     }
-
         </Select>
       </FormControl>
-
-            {/* <label className="filter">
-                <select onChange={c => handleFilter(c)}>
-                    <option value=''>Filter by activity</option>
-                    <option value='all'>All countries</option>
-                </select>
-            </label> */}
-       </div>
-    )
+    </div>
+  )
 }

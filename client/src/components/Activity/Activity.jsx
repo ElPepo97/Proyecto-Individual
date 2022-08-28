@@ -10,6 +10,30 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  root: {
+    background: '#f5eeee',
+    border: 0,
+    borderRadius: 4,
+    color: 'black',
+    height: 40,
+  },
+});
+
+const useStylesInput = makeStyles({
+  root: {
+    background: '#f5eeee',
+    border: 0,
+    borderRadius: 4,
+    color: 'black',
+    height: 37,
+    paddingLeft: 12,
+    marginRight: 20,
+    width: 220,
+  },
+});
 
 
 function Activity () {
@@ -23,7 +47,9 @@ function Activity () {
     const [errors, setErrors] = useState({})
     const countries = useSelector(state => state.countries2)
     const dispatch = useDispatch();
-    const oscuro = useSelector(state => state.oscuro)
+    const oscuro = useSelector(state => state.oscuro);
+    const classes = useStyles();
+    const classesInput = useStylesInput();
 
     function handleChange(event) {
         let name = event.target.name;
@@ -94,12 +120,13 @@ function Activity () {
                     onChange={handleChange}
                     size='small'
                     name="name"
+                    className={classesInput.root}
                 />
                 <br />
                 {errors.name && (<span className="danger">{errors.name}</span>)}
                 <br /><br />
                 
-                <FormControl sx={{  minWidth: 120 }} size="small">
+                <FormControl sx={{  minWidth: 120 }} size="small" className={classes.root}>
                     <InputLabel id="demo-simple-select-autowidth-label">Difficulty</InputLabel>
                     <Select
                         labelId="demo-simple-select-autowidth-label"
@@ -127,12 +154,13 @@ function Activity () {
                     onChange={handleChange}
                     name='duration'
                     size='small'
+                    className={classesInput.root}
                 />
                 <br />
                 {errors.duration && (<span className="danger">{errors.duration}</span>)}
                 <br /><br />
 
-                <FormControl variant="outlined" sx={{ minWidth: 120 }} size="small">
+                <FormControl variant="outlined" sx={{ minWidth: 120 }} size="small" className={classes.root}>
                     <InputLabel id="demo-simple-select-autowidth-label">Season</InputLabel>
                     <Select
                         labelId="demo-simple-select-autowidth-label"
@@ -154,7 +182,7 @@ function Activity () {
                 {errors.season && (<span className="danger">{errors.season}</span>)}
                 <br /><br />
 
-                <FormControl sx={{ minWidth: 240 }} size="small">
+                <FormControl sx={{ minWidth: 240 }} size="small" className={classes.root}>
                     <InputLabel id="demo-simple-select-autowidth-label">Countries for this activity</InputLabel>
                     <Select
                         labelId="demo-simple-select-autowidth-label"
