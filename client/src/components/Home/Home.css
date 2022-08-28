@@ -8,7 +8,8 @@
   font-family: Arima;
   color: rgb(17, 47, 80);
   font-size: 40px;
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
+  margin-top: 60px;
 }
 
 .pepito {
@@ -17,25 +18,18 @@
   padding-bottom: 20px;
   width: 100%;
   display: inline-block;
-};
-
-.basura {
-  color: red;
 }
 
 .homeOscuro {
   padding-bottom: 20px;
   width: 100%;
   display: inline-block;
-};
-
-.masbasura {
-  color: red;
 }
 
 .tituloOscuro {
   font-family: Arima;
   color: white;
   font-size: 40px;
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
+  margin-top: 60px;
 }

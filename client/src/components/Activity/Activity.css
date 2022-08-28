@@ -1,8 +1,15 @@
-.danger{
-    color: rgb(32, 29, 29);
+.danger {
+    color: rgb(255, 208, 0);
     font-family: sans-serif;
     font-size: 15px;
 }
+
+.dangerClaro {
+    color: rgb(255, 208, 0);
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
 .create-activity {
     height: 80%;
 
@@ -19,10 +26,6 @@
     backdrop-filter: blur(14.4px);
     -webkit-backdrop-filter: blur(14.4px);
     border: 1px solid rgba(35, 67, 96, 0.3);
-};
-
-.basurita {
-    color: red;
 }
 
 .create-activity-claro {
@@ -35,51 +38,13 @@
     padding-bottom: 20px;
 
     color:black;
-    background: rgba(235, 232, 194, 0.8);
+    background: rgba(154, 169, 190, 0.8);
     border-radius: 10px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(14.4px);
     -webkit-backdrop-filter: blur(14.4px);
     border: 1px solid rgba(35, 67, 96, 0.3);
-};
-
-.input {
-    color: rgb(9, 36, 59);
-    font-weight: bold;
-    font-family: sans-serif;
-    font-size: 14px;
-
-    width: 200px;
-    margin-right: 20px;
-    margin-left: 20px;
-    min-height: 30px;
-    padding: 0 10px;
-
-    background: rgb(184, 210, 228);
-    border-radius: 3px;
-    border: 2px solid rgb(66, 121, 184);
-    /* cursor: pointer; */
-};
-
-
-.activity-countries select{
-    color: rgb(9, 36, 59);
-    font-weight: bold;
-    font-family: sans-serif;
-    font-size: 14px;
-
-    width: 360px;
-    margin-right: 20px;
-    margin-left: 20px;
-    min-height: 35px;
-    padding: 0 10px;
-
-    background: rgb(184, 210, 228);
-    border-radius: 3px;
-    border: 2px solid rgb(66, 121, 184);
-    cursor: pointer;
-};
-
+}
 
 .error select{
     color: rgb(9, 36, 59);
@@ -136,10 +101,42 @@
 
 .borrar{
     background-color: red;
-    border: 1px solid black;
-    border-radius: 50px;
+    border: 0px solid black;
+    border-radius: 50000px;
+    height: 20px;
+    width: 20px;
     font-weight: bold;
-    font-size: 15px;
-
+    font-size: 12px;
+    margin-right: 10px;
+    
     cursor: pointer;
+}
+
+.carlit {
+    display: inline-block;
+    margin: 40px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.paises {
+    display: inline-block;
+    background-color: rgb(46 46 46);
+    width: fit-content;
+    padding: 7px;
+    border-radius: 15px;
+    color: white;
+    padding-right: 10px;
+    margin: 5px;
+}
+
+.paisesClaro {
+    display: inline-block;
+    background-color: rgba(235, 232, 194);
+    width: fit-content;
+    padding: 7px;
+    border-radius: 15px;
+    color: black;
+    padding-right: 10px;
+    margin: 5px;
 }

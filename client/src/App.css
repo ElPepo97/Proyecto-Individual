@@ -9,6 +9,7 @@
   background-attachment: fixed;
   color: white;
   height: 100vh;
+  padding-top: 40px;
 }
 
 .general2 {
@@ -24,8 +25,9 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  color: white;
+  color: rgb(46 46 46);
   height: 100vh;
+  padding-top: 40px;
 }
 
 .generalClaro2 {

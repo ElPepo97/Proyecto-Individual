@@ -12,6 +12,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { makeStyles } from '@material-ui/core/styles';
 
+
 const useStyles = makeStyles({
   root: {
     background: '#f5eeee',
@@ -19,6 +20,7 @@ const useStyles = makeStyles({
     borderRadius: 4,
     color: 'black',
     height: 40,
+    width: 240,
   },
 });
 
@@ -28,10 +30,9 @@ const useStylesInput = makeStyles({
     border: 0,
     borderRadius: 4,
     color: 'black',
-    height: 37,
+    height: 40,
     paddingLeft: 12,
-    marginRight: 20,
-    width: 220,
+    width: 240,
   },
 });
 
@@ -108,64 +109,67 @@ function Activity () {
     return (
         <div className={oscuro ? "general" : 'generalClaro'}>
             <NavBar />
-            <h1>Create Activity</h1>
-            <hr/>
+            <h1 className="carlitos">Create Activity</h1>
+
             <div className={oscuro ? "create-activity" : 'create-activity-claro'}>
-
-
-            <form noValidate autoComplete="off">
-                <Input
-                    placeholder="Activity name..."
-                    inputProps={{ 'aria-label': 'description' }}
-                    onChange={handleChange}
-                    size='small'
-                    name="name"
-                    className={classesInput.root}
-                />
-                <br />
-                {errors.name && (<span className="danger">{errors.name}</span>)}
-                <br /><br />
+                <form noValidate autoComplete="off">
+                    <div>
+                        <Input
+                            placeholder="Activity name..."
+                            inputProps={{ 'aria-label': 'description' }}
+                            onChange={handleChange}
+                            size='small'
+                            name="name"
+                            className={classesInput.root}
+                        />
+                        <br />
+                        {errors.name ? (<span className="dangerClaro">{errors.name}</span>) : <br />}
+                    </div>
                 
-                <FormControl sx={{  minWidth: 120 }} size="small" className={classes.root}>
-                    <InputLabel id="demo-simple-select-autowidth-label">Difficulty</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-autowidth-label"
-                        id="demo-simple-select-autowidth"
-                        value=''
-                        onChange={handleChange}
-                        autoWidth
-                        label="Difficulty"
-                        name={activity.difficulty}
-                    >
-                        <MenuItem value="1" >1 - Easy</MenuItem>
-                        <MenuItem value="2" >2 - Upper Easy</MenuItem>
-                        <MenuItem value="3" >3 - Medium</MenuItem>
-                        <MenuItem value="4" >4 - Advanced</MenuItem>
-                        <MenuItem value="5" >5 - Hard</MenuItem>
-                    </Select>
-                </FormControl>
-                <br />
-                {errors.difficulty && (<span className="danger">{errors.difficulty}</span>)}
-                <br /><br />
+                    <div className="carlit">
+                        <FormControl sx={{  minWidth: 120 }} size="small" className={classes.root}>
+                            <InputLabel id="demo-simple-select-autowidth-label">Difficulty</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-autowidth-label"
+                                id="demo-simple-select-autowidth"
+                                value={activity.difficulty}
+                                onChange={handleChange}
+                                autoWidth
+                                label="Difficulty"
+                                name='difficulty'
+                            >
+                                <MenuItem value="1" >1 - Easy</MenuItem>
+                                <MenuItem value="2" >2 - Upper Easy</MenuItem>
+                                <MenuItem value="3" >3 - Medium</MenuItem>
+                                <MenuItem value="4" >4 - Advanced</MenuItem>
+                                <MenuItem value="5" >5 - Hard</MenuItem>
+                            </Select>
+                        </FormControl>
+                        <br />
+                        {errors.difficulty && (<span className="dangerClaro">{errors.difficulty}</span>)}
+                        <br /><br />
                 
-                <Input
-                    placeholder="Duration (hs.)"
-                    inputProps={{ 'aria-label': 'description' }}
-                    onChange={handleChange}
-                    name='duration'
-                    size='small'
-                    className={classesInput.root}
-                />
-                <br />
-                {errors.duration && (<span className="danger">{errors.duration}</span>)}
-                <br /><br />
+                        <Input
+                            placeholder="Duration (hs.)"
+                            inputProps={{ 'aria-label': 'description' }}
+                            onChange={handleChange}
+                            name='duration'
+                            size='small'
+                            className={classesInput.root}
+                        />
+                        <br />
+                        {errors.duration && (<span className="dangerClaro">{errors.duration}</span>)}
+                        <br />
+                    </div>
+
+                <div className="carlit">
 
                 <FormControl variant="outlined" sx={{ minWidth: 120 }} size="small" className={classes.root}>
                     <InputLabel id="demo-simple-select-autowidth-label">Season</InputLabel>
                     <Select
                         labelId="demo-simple-select-autowidth-label"
                         id="demo-simple-select-autowidth"
-                        value=''
+                        value={activity.season}
                         onChange={handleChange}
                         autoWidth
                         label="Season"
@@ -179,7 +183,7 @@ function Activity () {
                     </Select>
                 </FormControl>
                 <br />
-                {errors.season && (<span className="danger">{errors.season}</span>)}
+                {errors.season && (<span className="dangerClaro">{errors.season}</span>)}
                 <br /><br />
 
                 <FormControl sx={{ minWidth: 240 }} size="small" className={classes.root}>
@@ -187,7 +191,7 @@ function Activity () {
                     <Select
                         labelId="demo-simple-select-autowidth-label"
                         id="demo-simple-select-autowidth"
-                        value=''
+                        value={activity.countriesName[activity.countriesName.length - 1]}
                         onChange={handleChange}
                         autoWidth
                         label="Countries for this activity"
@@ -200,21 +204,26 @@ function Activity () {
                     </Select>
                 </FormControl>
                 <br />
-                {!activity.countriesName.length && (<span className="danger">{errors.countriesName}</span>)}
-                                    {
-                                        activity.countriesName.length ?
+                {!activity.countriesName.length && (<span className="dangerClaro">{errors.countriesName}</span>)}
+                <br />
+                </div>
+                <div>
+
+                {
+                    activity.countriesName.length ?
                     activity.countriesName.map(c => {
-                        return <span key={c}>
+                        return <div key={c} className='paisesClaro'>
                             <button
                             className="borrar" onClick={handleCancel} value={c}
                             >x </button>
-                            {c} - </span>
+                            {c}</div>
                     })
                     : null
                 }
                 <br /><br />
+                </div>
 
-                <Button variant="contained" color="primary" onClick={handleSubmit} size='small'>
+                <Button variant="contained" color="primary" onClick={handleSubmit} size='large'>
                     Create Activity
                 </Button>
             </form>
