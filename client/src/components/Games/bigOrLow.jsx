@@ -68,7 +68,7 @@ const BiggerOrLower = ({
         }
         setTimeout(() => {
             setAnswering(false)
-        }, 500)
+        }, 10)
     }
 
     const handleTryAgain = (e) => {

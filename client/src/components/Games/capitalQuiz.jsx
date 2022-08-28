@@ -31,7 +31,7 @@ const CapitalQuiz = ({
             setCountry(countries[Math.floor(Math.random()*250)]);
             setContador(contador => contador + 1)
             setAnswering(false)
-        }, 800)
+        }, 10)
     }
 
     const handleGoBack = (e) => {
