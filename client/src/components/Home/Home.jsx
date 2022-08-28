@@ -32,7 +32,6 @@ class Home extends Component {
         if (event.target.value) {
             this.props.orderedCountries(event.target.value)
         }
-        this.forceUpdate()
     }
 
     handlePage(pageNumber, value) { 

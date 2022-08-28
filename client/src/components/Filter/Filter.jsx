@@ -13,17 +13,18 @@ const useStyles = makeStyles({
     background: '#f5eeee',
     border: 0,
     borderRadius: 4,
-    color: 'black',
+    color: 'blue',
     height: 40,
     width: 180,
   },
 });
 
 
-export default function Filter ({ handleSort, handlePage }) {
+export default function Filter ({ handleSort, handlePage, order }) {
     const filterActivities = useSelector(state => state.activities)
     const dispatch = useDispatch();
     const [filter, setFilter] = useState('');
+    const [activity, setActivity] = useState('');
     const classes = useStyles();
 
     function handleRegion (event) {
@@ -32,6 +33,7 @@ export default function Filter ({ handleSort, handlePage }) {
         if (event.target.value){
             dispatch(filterRegion(event.target.value))
         }
+        setFilter(event.target.value);
     }
 
     function handleFilter (event) {
@@ -40,7 +42,7 @@ export default function Filter ({ handleSort, handlePage }) {
         if (event.target.value){
             dispatch(filterActivity(event.target.value))
         }
-        setFilter(event.target.value);
+        setActivity(event.target.value);
     }
     
   return (
@@ -50,7 +52,7 @@ export default function Filter ({ handleSort, handlePage }) {
         <Select
           labelId="demo-simple-select-autowidth-label"
           id="demo-simple-select-autowidth"
-          value={filter}
+          value={order}
           onChange={handleSort}
           autoWidth
           label="Order by..."
@@ -87,7 +89,7 @@ export default function Filter ({ handleSort, handlePage }) {
         <Select
           labelId="demo-simple-select-autowidth-label"
           id="demo-simple-select-autowidth"
-          value=''
+          value={activity}
           onChange={handleFilter}
           autoWidth
           label="Filter by activity"
