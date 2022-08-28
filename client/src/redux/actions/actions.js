@@ -9,7 +9,7 @@ export const FILTER_REGION = 'FILTER_REGION';
 export const FILTER_ACTIVITY = 'FILTER_ACTIVITY';
 export const CHANGE_BACKGROUND_COLOR = 'CHANGE_BACKGROUND_COLOR';
 
-const DEV_URL = 'pi-backend-aq5pb33ut-elpepo97.vercel.app';
+const DEV_URL = 'https://pi-backend-aq5pb33ut-elpepo97.vercel.app';
 // const DEV_URL = 'http://localhost:3001';
 
 
